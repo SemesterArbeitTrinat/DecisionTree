@@ -6,34 +6,37 @@ package com.tomsc.decisiontree;
 
 public class Item implements Comparable<Item> {
 
-    private String name, cut, category, topcategory;
+    private String name, cut, topcategory;
     private String color, style;
-    private int rank, randomizedRank, id;
+    private String image_path;
+    private int rank, randomizedRank, id, favourite;
 
 
-    Item() {
+    public Item() {
         this.topcategory = "";
-        this.category = "";
         this.cut = "";
         this.name = "";
         this.color = "";
         this.style = "";
+        this.favourite = 0;
         this.rank = 0;
         this.randomizedRank = 0;
         this.id = 0;
+        this.image_path = "";
 
     }
 
-    public Item(String name, String cut, String category, String topcategory, String color, String style, int rank, int randomizedRank, int id) {
-        this.name = name;
-        this.cut = cut;
-        this.category = category;
+    public Item(String name, String cut, String topcategory, String color, String style, String image_path, int rank, int id, int favourite) {
         this.topcategory = topcategory;
+        this.cut = cut;
+        this.name = name;
         this.color = color;
         this.style = style;
+        this.favourite = favourite;
         this.rank = rank;
-        this.randomizedRank = randomizedRank;
+        this.randomizedRank = 0;
         this.id = id;
+        this.image_path = image_path;
     }
 
     public String getName() {
@@ -50,14 +53,6 @@ public class Item implements Comparable<Item> {
 
     public void setCut(String cut) {
         this.cut = cut;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
     }
 
     public String getTopcategory() {
@@ -84,6 +79,14 @@ public class Item implements Comparable<Item> {
         this.style = style;
     }
 
+    public String getImage_path() {
+        return image_path;
+    }
+
+    public void setImage_path(String image_path) {
+        this.image_path = image_path;
+    }
+
     public int getRank() {
         return rank;
     }
@@ -104,7 +107,17 @@ public class Item implements Comparable<Item> {
         return id;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
 
+    public int getFavourite() {
+        return favourite;
+    }
+
+    public void setFavourite(int favourite) {
+        this.favourite = favourite;
+    }
 
     public int compareTo(Item compareitem) {
         int compareRandomizedRank= compareitem.getRandomizedRank();

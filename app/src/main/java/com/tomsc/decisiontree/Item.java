@@ -1,5 +1,7 @@
 package com.tomsc.decisiontree;
 
+import android.net.Uri;
+
 /**
  * Created by tomsc on 10.05.2018.
  */
@@ -7,8 +9,9 @@ package com.tomsc.decisiontree;
 public class Item implements Comparable<Item> {
 
     private String name, cut, topcategory;
-    private String color, style;
-    private String image_path;
+    private String color;
+    private String[] style = new String[5] ;
+    private Uri image_path;
     private int rank, randomizedRank, id, favourite;
 
 
@@ -17,16 +20,16 @@ public class Item implements Comparable<Item> {
         this.cut = "";
         this.name = "";
         this.color = "";
-        this.style = "";
+        this.style[0] = "";
         this.favourite = 0;
         this.rank = 0;
         this.randomizedRank = 0;
         this.id = 0;
-        this.image_path = "";
+        this.image_path = null;
 
     }
 
-    public Item(String name, String cut, String topcategory, String color, String style, String image_path, int rank, int id, int favourite) {
+    public Item(String name, String cut, String topcategory, String color, String[] style, Uri image_path, int rank, int id, int favourite) {
         this.topcategory = topcategory;
         this.cut = cut;
         this.name = name;
@@ -71,19 +74,19 @@ public class Item implements Comparable<Item> {
         this.color = color;
     }
 
-    public String getStyle() {
+    public String[] getStyle() {
         return style;
     }
 
-    public void setStyle(String style) {
+    public void setStyle(String[] style) {
         this.style = style;
     }
 
-    public String getImage_path() {
+    public Uri getImage_path() {
         return image_path;
     }
 
-    public void setImage_path(String image_path) {
+    public void setImage_path(Uri image_path) {
         this.image_path = image_path;
     }
 
